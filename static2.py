@@ -22,13 +22,10 @@ print time.clock() - startMain
 def isFalse(x):
     if x.lower() == 'false':
         return False
-    types = (int, str, bool)
-    for t in types:
-        try: x = t(x)
-        except:
-            pass
-        else:
-            return bool(x)
+    try: x = int(x)
+    except:
+        pass
+    return bool(x)
             
 playSong = len(sys.argv) > 1 and isFalse(sys.argv[1]) #if the argument is false, the song will not play
 #generate a bunch of random images 25x25px
